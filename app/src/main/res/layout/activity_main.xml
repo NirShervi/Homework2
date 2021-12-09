@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/main_Life_Message_Bar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="10"
+        app:layout_constraintBottom_toTopOf="@+id/main_Board"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        android:background="#FFFFFFFF"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/main_heart_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/heart" />
+
+            <ImageView
+                android:id="@+id/main_heart_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/heart" />
+
+            <ImageView
+                android:id="@+id/main_heart_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/heart" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/main_coins"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:text="Coins:" />
+
+        <TextView
+            android:id="@+id/main_distance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:text="Distance:" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/main_Board"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"
+
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/main_Buttons_Bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/main_Rock_1x1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_1x2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_1x3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_1x4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_1x5"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_1x6"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_1x7"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_1x8"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_1x9"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/main_Rock_2x1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_2x2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_2x3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_2x4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_2x5"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_2x6"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_2x7"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_2x8"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_2x9"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:background="#FFFFFFFF"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/main_Rock_3x1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_3x2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_3x3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_3x4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_3x5"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_3x6"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_3x7"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_3x8"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_3x9"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/main_Rock_4x1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_4x2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_4x3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_4x4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_4x5"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_4x6"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_4x7"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_4x8"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_4x9"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/main_Rock_5x1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_5x2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_5x3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_5x4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_5x5"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_5x6"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_5x7"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_5x8"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageView
+                android:id="@+id/main_Rock_5x9"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/stone2" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/main_Board_Coins"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/main_Buttons_Bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/main_Coins_1x1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_1x2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_1x3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_1x4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_1x5"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_1x6"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_1x7"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_1x8"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_1x9"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/main_Coins_2x1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_2x2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_2x3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_2x4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_2x5"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_2x6"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_2x7"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_2x8"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_2x9"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/main_Coins_3x1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_3x2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_3x3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_3x4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_3x5"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_3x6"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_3x7"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_3x8"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_3x9"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/main_Coins_4x1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_4x2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_4x3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_4x4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_4x5"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_4x6"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_4x7"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_4x8"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_4x9"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/main_Coins_5x1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_5x2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_5x3"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_5x4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_5x5"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_5x6"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_5x7"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_5x8"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+            <ImageView
+                android:id="@+id/main_Coins_5x9"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                app:srcCompat="@drawable/coin" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="20"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/main_Buttons_Bar">
+
+        <ImageView
+            android:id="@+id/main_Battleship_1"
+            android:layout_width="40dp"
+            android:layout_height="70dp"
+            android:layout_weight="5"
+            app:srcCompat="@drawable/battleship" />
+
+        <ImageView
+            android:id="@+id/main_Battleship_2"
+            android:layout_width="40dp"
+            android:layout_height="70dp"
+            android:layout_weight="5"
+            app:srcCompat="@drawable/battleship" />
+
+        <ImageView
+            android:id="@+id/main_Battleship_3"
+            android:layout_width="40dp"
+            android:layout_height="70dp"
+            android:layout_weight="5"
+            app:srcCompat="@drawable/battleship" />
+
+        <ImageView
+            android:id="@+id/main_Battleship_4"
+            android:layout_width="40dp"
+            android:layout_height="70dp"
+            android:layout_weight="5"
+            app:srcCompat="@drawable/battleship" />
+
+        <ImageView
+            android:id="@+id/main_Battleship_5"
+            android:layout_width="40dp"
+            android:layout_height="70dp"
+            android:layout_weight="5"
+            app:srcCompat="@drawable/battleship" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/main_Buttons_Bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="1dp">
+
+        <ImageButton
+            android:id="@+id/button_Left"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_margin="12dp"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/left" />
+
+        <ImageButton
+            android:id="@+id/button_Right"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_margin="12dp"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/right2" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
