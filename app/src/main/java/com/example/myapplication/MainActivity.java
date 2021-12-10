@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Handler;
 import android.os.VibrationEffect;
@@ -23,7 +24,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
+import com.google.android.material.textview.MaterialTextView;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -66,6 +67,7 @@ import java.util.TimerTask;
      private double lon=0,lat=0;
      private LocationManager lm;
      private LocationListener locationListener;
+     private MediaPlayer mediaPlayer;
 
 
 
@@ -81,6 +83,21 @@ import java.util.TimerTask;
          if (endGame==0) {
              findViews();
              InitGame();
+             lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+             locationListener = new LocationListener() {
+                 @Override
+                 public void onLocationChanged(@NonNull Location location) {
+                     lat = location.getLatitude();
+                     lon = location.getLatitude();
+                     Log.i("@@@@@@@@gps@@@@@@@@@", "lat:  (in func) "+ location.getLatitude() +" lon: (in func)" + location.getLatitude());
+                 }
+             };
+             Log.i("@@@@@@@@gps@@@@@@@@@", "lat:    "+ lat +" lon:" + lon);
+             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+             } else {
+                 lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 1, locationListener);
+             }
              moveBattleship();
              startGameThread();
          }
@@ -93,6 +110,7 @@ import java.util.TimerTask;
          button_LEFT = findViewById(R.id.button_Left);
          textCoins = findViewById(R.id.main_coins);
          textDistance = findViewById(R.id.main_distance);
+         mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.spaceship_crush);
 
          rocks_Images = new ImageView[]
                  {
@@ -235,16 +253,16 @@ import java.util.TimerTask;
          battleship_Images[3].setVisibility(View.INVISIBLE);
          battleship_Images[4].setVisibility(View.INVISIBLE);
          textCoins.setTextSize(12);
-         textCoins.setText("Coins: "+collectedCoins);
          textDistance.setTextSize(12);
-         textDistance.setText("Distance: "+distance);
          if (rocks_Images[8].getVisibility() == View.VISIBLE) {
-             Log.d("Init", "Init:");
+             //Log.d("Init", "Init:");
          }
          collectedCoins = 0;
          //
          distance =0;
          life=3;
+         textDistance.setText("Distance: "+distance);
+         textCoins.setText("Coins: "+collectedCoins);
      }
 
 
@@ -262,25 +280,25 @@ import java.util.TimerTask;
                  battleship_Images[2].setVisibility(View.INVISIBLE);
                  battleship_Images[3].setVisibility(View.VISIBLE);
                  battleship_position++;
-                 Log.d("battleship position changed","the position is "+ battleship_position);
+                 //Log.d("battleship position changed","the position is "+ battleship_position);
              }
              else if(battleship_position==-1){
                  battleship_Images[1].setVisibility(View.INVISIBLE);
                  battleship_Images[2].setVisibility(View.VISIBLE);
                  battleship_position++;
-                 Log.d("battleship position changed","the position is "+ battleship_position);
+                 //Log.d("battleship position changed","the position is "+ battleship_position);
              }
              else if(battleship_position==1){
                  battleship_Images[3].setVisibility(View.INVISIBLE);
                  battleship_Images[4].setVisibility(View.VISIBLE);
                  battleship_position++;
-                 Log.d("battleship position changed","the position is "+ battleship_position);
+                 //Log.d("battleship position changed","the position is "+ battleship_position);
              }
              else if(battleship_position==-2){
                  battleship_Images[0].setVisibility(View.INVISIBLE);
                  battleship_Images[1].setVisibility(View.VISIBLE);
                  battleship_position++;
-                 Log.d("battleship position changed","the position is "+ battleship_position);
+                 //Log.d("battleship position changed","the position is "+ battleship_position);
              }
          });
          button_LEFT.setOnClickListener(v -> {
@@ -288,25 +306,25 @@ import java.util.TimerTask;
                  battleship_Images[3].setVisibility(View.INVISIBLE);
                  battleship_Images[2].setVisibility(View.VISIBLE);
                  battleship_position--;
-                 Log.d("battleship position changed","the position is "+ battleship_position);
+                 //Log.d("battleship position changed","the position is "+ battleship_position);
              }
              else if(battleship_position==0){
                  battleship_Images[2].setVisibility(View.INVISIBLE);
                  battleship_Images[1].setVisibility(View.VISIBLE);
                  battleship_position--;
-                 Log.d("battleship position changed","the position is "+ battleship_position);
+                 //Log.d("battleship position changed","the position is "+ battleship_position);
              }
              else if(battleship_position==-1){
                  battleship_Images[1].setVisibility(View.INVISIBLE);
                  battleship_Images[0].setVisibility(View.VISIBLE);
                  battleship_position--;
-                 Log.d("battleship position changed","the position is "+ battleship_position);
+               //  Log.d("battleship position changed","the position is "+ battleship_position);
              }
              else if(battleship_position==2){
                  battleship_Images[4].setVisibility(View.INVISIBLE);
                  battleship_Images[3].setVisibility(View.VISIBLE);
                  battleship_position--;
-                 Log.d("battleship position changed","the position is "+ battleship_position);
+             //    Log.d("battleship position changed","the position is "+ battleship_position);
              }
          });
 
@@ -347,7 +365,7 @@ import java.util.TimerTask;
          handleCoins();
          handleRocks();
          if (rocks_Images[8].getVisibility() == View.VISIBLE) {
-             Log.d("StartGame loop", "startGame: " );
+           //  Log.d("StartGame loop", "startGame: " );
          }
          for (int i=sizeOfArray-1;i>=0 ; i--){
              if ((i+1)%9==0 || i==8)
@@ -389,6 +407,7 @@ import java.util.TimerTask;
                  (rocks_Images[44].getVisibility()== View.VISIBLE && battleship_position==2)){
 
              try {
+                 mediaPlayer.start();
                  deleteHeart();
              } catch (InterruptedException e) {
                  e.printStackTrace();
@@ -413,7 +432,7 @@ import java.util.TimerTask;
 
      private void deleteHeart() throws InterruptedException {
          boolean bool = rocks_Images[8].getVisibility()== View.VISIBLE;
-         Log.d("heart", "delete heart"+ bool +" thread" + Thread.currentThread().getName());
+         //Log.d("heart", "delete heart"+ bool +" thread" + Thread.currentThread().getName());
          if (life==3){
              heart_Images[2].setVisibility(View.INVISIBLE);
              vibration();
@@ -440,20 +459,6 @@ import java.util.TimerTask;
      private void gameOver() throws InterruptedException {
          Toast.makeText(this, "Restart in 3 sec", Toast.LENGTH_SHORT).show();
          Thread.sleep(3000);
-         lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-         locationListener = new LocationListener() {
-             @Override
-             public void onLocationChanged(@NonNull Location location) {
-                 lat = location.getLatitude();
-                 lon = location.getLongitude();
-             }
-         };
-         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-         } else {
-             lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 1, locationListener);
-         }
-
          Score score = new Score(collectedCoins,distance,lat,lon);
          ScoreList.getInstance().addScore(getApplicationContext(), score);
 

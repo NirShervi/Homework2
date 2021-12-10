@@ -14,7 +14,6 @@ public class MySharedPreferences {
     }
 
     public static MySharedPreferences getInstance(Context context) {
-        Log.i("info", "I'm here");
         if (mySharedPreferences == null) {
             mySharedPreferences = new MySharedPreferences(context);
         }
