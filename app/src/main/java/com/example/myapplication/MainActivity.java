@@ -11,7 +11,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,15 +18,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import com.google.android.material.textview.MaterialTextView;
 import java.util.Random;
 import java.util.Timer;
-import java.util.TimerTask;
 
  public class MainActivity extends AppCompatActivity {
 
@@ -44,18 +40,12 @@ import java.util.TimerTask;
      private ImageView[] battleship_Images;
      // on the top of the screen will be text messages that will show the game situation
      private TextView textCoins,textDistance;
-     // clock starting from zero
-     private int clock = 0;
      // three life as the number of hearts
      private int life=3;
-     // represent  every column of rocks - set activation that would not active other column of rocks
-     private int [] rock_Active = new int[5];
      // represent where the battleship is    -1 - left    0 - middle    1-right
      private int battleship_position=0;
      private Timer timer = new Timer();
      // gaps between columns in rock image array
-     private int row=9;
-     //
      private int endGame=0;
      //
      private int collectedCoins = 0;
@@ -111,7 +101,6 @@ import java.util.TimerTask;
          textCoins = findViewById(R.id.main_coins);
          textDistance = findViewById(R.id.main_distance);
          mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.spaceship_crush);
-
          rocks_Images = new ImageView[]
                  {
                          findViewById(R.id.main_Rock_1x1),
@@ -208,7 +197,6 @@ import java.util.TimerTask;
                          findViewById(R.id.main_Coins_5x8),
                          findViewById(R.id.main_Coins_5x9)
                  };
-
          heart_Images = new ImageView []
                  {
                          findViewById(R.id.main_heart_1),
@@ -239,10 +227,12 @@ import java.util.TimerTask;
                  rocks_Images) {
              rock.setVisibility(View.INVISIBLE);
          }
+         //disappear all coins before the game starts
          for (ImageView coin:
                  coins_Images) {
              coin.setVisibility(View.INVISIBLE);
          }
+         //show all hearts when the game starts
          for (ImageView heart:
                  heart_Images) {
              heart.setVisibility(View.VISIBLE);
@@ -250,15 +240,14 @@ import java.util.TimerTask;
          //start battleship from the middle
          battleship_Images[0].setVisibility(View.INVISIBLE);
          battleship_Images[1].setVisibility(View.INVISIBLE);
+         battleship_Images[2].setVisibility(View.VISIBLE);
+         battleship_position=0;
          battleship_Images[3].setVisibility(View.INVISIBLE);
          battleship_Images[4].setVisibility(View.INVISIBLE);
+         // init Upper bar (coins counter,distance counter and hearts)
          textCoins.setTextSize(12);
          textDistance.setTextSize(12);
-         if (rocks_Images[8].getVisibility() == View.VISIBLE) {
-             //Log.d("Init", "Init:");
-         }
          collectedCoins = 0;
-         //
          distance =0;
          life=3;
          textDistance.setText("Distance: "+distance);
@@ -273,7 +262,7 @@ import java.util.TimerTask;
 
 
 
-
+    // handle battleship movement
      private void moveBattleship() {
          button_RIGHT.setOnClickListener(v -> {
              if(battleship_position==0){
@@ -337,7 +326,7 @@ import java.util.TimerTask;
 
 
 
-
+    // start a thread that handle the game process
      private void startGameThread() {
          Handler handler = new Handler();
          Runnable runnable = new Runnable() {
@@ -348,7 +337,6 @@ import java.util.TimerTask;
                  } catch (InterruptedException e) {
                      e.printStackTrace();
                  }
-                 //Game_MTV_distance.setText(++distance + "M");
                  handler.postDelayed(this, 700);
              }
          };
@@ -358,15 +346,12 @@ import java.util.TimerTask;
 
 
 
-     // start generating a random number to decide witch column will activate with falling rocks
+     // start the game - falling rocks and coin on  defined matrix
      private void startGame() throws InterruptedException {
-
+         // handle cases - coins collect, distance counter and rocks crush
          handleDistance();
          handleCoins();
          handleRocks();
-         if (rocks_Images[8].getVisibility() == View.VISIBLE) {
-           //  Log.d("StartGame loop", "startGame: " );
-         }
          for (int i=sizeOfArray-1;i>=0 ; i--){
              if ((i+1)%9==0 || i==8)
              {
@@ -389,16 +374,17 @@ import java.util.TimerTask;
          int rnd2 = new Random().nextInt(5);
          if (rnd1 != rnd2)
             coins_Images[rnd2*9].setVisibility(View.VISIBLE);
-
-
      }
 
+
+    //count distance
      private void handleDistance() {
          distance++;
          textDistance.setText("Distance: "+distance);
 
      }
 
+    // delete heart in case of crushing a rock
      private void handleRocks() {
          if (    (rocks_Images[8].getVisibility()== View.VISIBLE && battleship_position==-2) ||
                  (rocks_Images[17].getVisibility()== View.VISIBLE && battleship_position==-1) ||
@@ -417,6 +403,7 @@ import java.util.TimerTask;
 
      }
 
+    // add coins
      private void handleCoins() {
          if (    coins_Images[8].getVisibility()== View.VISIBLE && battleship_position==-2 ||
                  coins_Images[17].getVisibility()== View.VISIBLE && battleship_position==-1||
@@ -429,10 +416,9 @@ import java.util.TimerTask;
          }
      }
 
-
+    // delete heart and create vibrate - finish the game when 1 heart left
      private void deleteHeart() throws InterruptedException {
          boolean bool = rocks_Images[8].getVisibility()== View.VISIBLE;
-         //Log.d("heart", "delete heart"+ bool +" thread" + Thread.currentThread().getName());
          if (life==3){
              heart_Images[2].setVisibility(View.INVISIBLE);
              vibration();
@@ -455,14 +441,13 @@ import java.util.TimerTask;
              gameOver();
          }
      }
-
+    // handle when game is over and produce new game automaticly
      private void gameOver() throws InterruptedException {
-         Toast.makeText(this, "Restart in 3 sec", Toast.LENGTH_SHORT).show();
-         Thread.sleep(3000);
-         Score score = new Score(collectedCoins,distance,lat,lon);
-         ScoreList.getInstance().addScore(getApplicationContext(), score);
-
-         InitGame();
+         Toast.makeText(this, "Restart in 2 sec", Toast.LENGTH_SHORT).show();
+         Thread.sleep(2000);
+         Score score = new Score(collectedCoins,distance,lat,lon); // create score
+         ScoreList.getInstance().addScore(getApplicationContext(), score); // add score to list and show it in ListFragment
+         InitGame(); // init game after - game over
      }
 
 
@@ -482,6 +467,7 @@ import java.util.TimerTask;
          }
 
      }
+     // support function to find GPS
      @Override
      public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
          super.onRequestPermissionsResult(requestCode, permissions, grantResults);

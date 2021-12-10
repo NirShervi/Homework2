@@ -28,7 +28,7 @@ public class ListFragment extends Fragment {
         }
         ArrayList<String> stringArrayList = new ArrayList<String>();
         for (Score score : ScoreList.getInstance().getScoreArr()){
-            stringArrayList.add("Coins: "+score.getCoins()+"Distance: "+score.getDistance()+"\n");
+            stringArrayList.add("Coins:     "+score.getCoins()+"       Distance:     "+score.getDistance()+"\n");
         }
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_list_item_1,stringArrayList );
         listViewScores.setAdapter(arrayAdapter);
